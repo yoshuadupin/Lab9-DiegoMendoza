@@ -25,7 +25,7 @@ int main(){
 	do{
 		cout<<"1.Desea entrenar Bender o 2.Simular: 3.Salir"<<endl;
 		cin>>opcion;
-	
+
 		if(opcion == 1){
 			
 			cout<<"Las 4 naciones desean entrenar sus guerreros:"<<endl;
@@ -36,7 +36,7 @@ int main(){
 			int especial;
 			int fuerza;
 			int suerte;
-	
+
 			cout<<"Ingrese nombre:"<<endl;
 			cin>>nombre;
 			cout<<"Ingrese hp:"<<endl;
@@ -48,7 +48,9 @@ int main(){
 			cout<<"Ingrese Fuerza:"<<endl;
 			cin>>fuerza;
 			cout<<"Ingrese Suerte:"<<endl;
-			cin>>suerte;
+			do{
+				cin>>suerte;
+			}while(suerte<1 || suerte>=11);
 			if(opcion == 1){
 				benders.push_back(new EarthBender(nombre , hp , normal , especial , fuerza , suerte));
 			}else if(opcion == 2){
@@ -64,10 +66,10 @@ int main(){
 			cout<<"Ingrese los benders que quiere:"<<endl;
 			cin>>indice1;
 			cin>>indice2;
-	
+
 			bash(benders[indice1], benders[indice2]);
 		}
-		}while(opcion != 3);
+	}while(opcion != 3);
 	
 
 
@@ -100,7 +102,9 @@ void bash(Bender* at, Bender* def){
 			}else if(decision == 3){
 				if(typeid(at) == typeid(WaterBender)){
 					//SUMAR
-					at->setHp(at->getHp()+75);
+					if(at->getFuerza()>=110){
+						at->setHp(at->getHp()+75);
+					}
 				}
 			}else if(decision == 4){
 				if(typeid(at) == typeid(EarthBender)){
@@ -114,7 +118,7 @@ void bash(Bender* at, Bender* def){
 		}else{
 			cout<<"Segundo Maestro ataca"<<endl;
 			def->spiar();
-			cout<<">>1.Normal\n>>2.Especial\n>>3.Recovery[Solo Maestros Aguas]\n>>4.Espiar[Maestros Tierras]"<<endl;
+			cout<<">>1.Normal\n>>2.Especial\n>>3.Recovery[Solo Maestros Aguas]\n>>4.Espiar[Maestros Tierras]\n5.RUN WTF"<<endl;
 			cin>>decision;
 			def->ofensa();
 			if(decision == 1){
@@ -127,7 +131,9 @@ void bash(Bender* at, Bender* def){
 			}else if(decision == 3){
 				if(typeid(at) == typeid(WaterBender)){
 					//SUMAR
-					def->setHp(def->getHp()+75);
+					if(at->getFuerza()>=110){
+						def->setHp(def->getHp()+75);
+					}
 				}
 			}else if(decision == 4){
 				if(typeid(def) == typeid(EarthBender)){
