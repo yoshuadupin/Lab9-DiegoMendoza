@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <typeinfo>
-
+//#include "Avatar.h"
 
 using namespace std;
 bool run();
@@ -22,51 +22,52 @@ int main(){
 	benders.push_back(new WaterBender("Katara" ,20 ,60, 80 , 50 , 10));
 	benders.push_back(new AirBender("Aang" ,15 ,45, 100 , 50 , 7));
 	
-
-	cout<<"1.Desea entrenar Bender o 2.Simular:"<<endl;
-	cin>>opcion;
-	if(opcion == 1){
-		
-		cout<<"Las 4 naciones desean entrenar sus guerreros:"<<endl;
-		cout<<"1.Tierra 2.Fuego 3. Agua 4. Aire "<<endl;
-		string nombre;	
-		int hp;	
-		int normal;
-		int especial;
-		int fuerza;
-		int suerte;
-
-		cout<<"Ingrese nombre:"<<endl;
-		cin>>nombre;
-		cout<<"Ingrese hp:"<<endl;
-		cin>>hp;
-		cout<<"Ingrese Normal:"<<endl;
-		cin>>normal;	
-		cout<<"Ingrese Especial:"<<endl;
-		cin>>especial;
-		cout<<"Ingrese Fuerza:"<<endl;
-		cin>>fuerza;
-		cout<<"Ingrese Suerte:"<<endl;
-		cin>>suerte;
-		if(opcion == 1){
-			benders.push_back(new EarthBender(nombre , hp , normal , especial , fuerza , suerte));
-		}else if(opcion == 2){
-			benders.push_back(new FireBender(nombre , hp , normal , especial , fuerza , suerte));
-		}else if(opcion == 3){
-			benders.push_back(new WaterBender(nombre , hp , normal , especial , fuerza , suerte));
-		}else if(opcion == 4){
-			benders.push_back(new AirBender(nombre , hp , normal , especial , fuerza , suerte));
-		}
-	}else{
-		int indice1;
-		int indice2;
-		cout<<"Ingrese los benders que quiere:"<<endl;
-		cin>>indice1;
-		cin>>indice2;
-
-		bash(benders[indice1], benders[indice2]);
-	}
+	do{
+		cout<<"1.Desea entrenar Bender o 2.Simular: 3.Salir"<<endl;
+		cin>>opcion;
 	
+		if(opcion == 1){
+			
+			cout<<"Las 4 naciones desean entrenar sus guerreros:"<<endl;
+			cout<<"1.Tierra 2.Fuego 3. Agua 4. Aire "<<endl;
+			string nombre;	
+			int hp;	
+			int normal;
+			int especial;
+			int fuerza;
+			int suerte;
+	
+			cout<<"Ingrese nombre:"<<endl;
+			cin>>nombre;
+			cout<<"Ingrese hp:"<<endl;
+			cin>>hp;
+			cout<<"Ingrese Normal:"<<endl;
+			cin>>normal;	
+			cout<<"Ingrese Especial:"<<endl;
+			cin>>especial;
+			cout<<"Ingrese Fuerza:"<<endl;
+			cin>>fuerza;
+			cout<<"Ingrese Suerte:"<<endl;
+			cin>>suerte;
+			if(opcion == 1){
+				benders.push_back(new EarthBender(nombre , hp , normal , especial , fuerza , suerte));
+			}else if(opcion == 2){
+				benders.push_back(new FireBender(nombre , hp , normal , especial , fuerza , suerte));
+			}else if(opcion == 3){
+				benders.push_back(new WaterBender(nombre , hp , normal , especial , fuerza , suerte));
+			}else if(opcion == 4){
+				benders.push_back(new AirBender(nombre , hp , normal , especial , fuerza , suerte));
+			}
+		}else if(opcion == 2){
+			int indice1;
+			int indice2;
+			cout<<"Ingrese los benders que quiere:"<<endl;
+			cin>>indice1;
+			cin>>indice2;
+	
+			bash(benders[indice1], benders[indice2]);
+		}
+		}while(opcion != 3);
 	
 
 
