@@ -21,7 +21,9 @@ int main(){
 	benders.push_back(new FireBender("Zuko" ,15 ,45, 100 , 50 , 7));
 	benders.push_back(new WaterBender("Katara" ,20 ,60, 80 , 50 , 10));
 	benders.push_back(new AirBender("Aang" ,15 ,45, 100 , 50 , 7));
-	
+	//Bender* avatar =new Avatar("Aang A" ,15 ,45, 100 , 50 , 7);
+	//avatar.EarthBender->ofensa();
+
 	do{
 		cout<<"1.Desea entrenar Bender o 2.Simular: 3.Salir"<<endl;
 		cin>>opcion;
